@@ -4,8 +4,9 @@ from pandas import DataFrame
 from pandas import Series
 import numpy as np
 from numpy import nan as NA
-eufile = open("EuCitiesTemperatures.csv")
-data = pd.read_csv(eufile)
+import csv  
+f = open("EuCitiesTemperatures.csv")
+data = pd.read_csv(f)
 lst=Series(list(data['latitude']), index=data['country'].values)
 newlatlist=[]
 for i in data.index:
@@ -22,3 +23,4 @@ for i in data.index:
     else:
         newlonglist.append(data['longitude'][i])
 data['longitude']=newlonglist
+data.to_csv("EuCitiesTemperatures.csv", columns=data.columns)
