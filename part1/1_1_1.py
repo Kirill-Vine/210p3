@@ -4,7 +4,8 @@ from pandas import DataFrame
 from pandas import Series
 import numpy as np
 from numpy import nan as NA
-import csv  
+import csv
+from matplotlib import pyplot as plt
 f = open("EuCitiesTemperatures.csv")
 data = pd.read_csv(f)
 lst=Series(list(data['latitude']), index=data['country'].values)
